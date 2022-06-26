@@ -1,0 +1,102 @@
+@import "../../assets/scss/app.scss";
+
+.form-account {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 50px;
+  .left {
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    .row-info {
+      padding: 20px;
+      gap: 20px;
+
+      .date-group {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-weight: 500;
+        color: rgba(129, 127, 127, 0.933);
+
+        .selector {
+          display: flex;
+          width: 350px;
+          justify-content: space-between;
+
+          .select-group {
+            width: 100px;
+            display: flex;
+          }
+        }
+      }
+
+      .radio-group {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        label {
+          font-weight: 500;
+          color: rgba(129, 127, 127, 0.933);
+        }
+
+        .radio {
+          display: flex;
+          gap: 20px;
+
+          .form-group_radio {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+          }
+        }
+      }
+    }
+  }
+  .right {
+    .info-group {
+      &:not(:last-child) {
+        border-bottom: 1px solid $action-primary;
+      }
+    }
+
+    .row {
+      margin-top: 40px;
+      gap: 20px;
+      .phone,
+      .email,
+      .password,
+      .google,
+      .facebook {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .info {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          .icon {
+            font-size: 25px;
+          }
+        }
+
+        button:hover {
+          color: $accent;
+        }
+      }
+
+      .facebook {
+        .icon {
+          color: hsl(220, 46%, 48%);
+        }
+      }
+    }
+  }
+}

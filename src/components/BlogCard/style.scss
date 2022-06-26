@@ -1,0 +1,148 @@
+@import "../../assets/scss/app.scss";
+
+.blog-card {
+  background: $background-primary;
+  padding: 10px;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 10px hsla(0, 0%, 0%, 0.05);
+  transition: 0.25s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 10px hsla(0, 0%, 0%, 0.1);
+  }
+
+  @include responsive_550 {
+    display: grid;
+    grid-template-columns: 3fr 4fr;
+    gap: 20px;
+  }
+
+  .blog-card-banner {
+    display: none;
+
+    @include responsive_550 {
+      display: block;
+
+      .blog-card-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .blog-content-wrapper {
+    padding: 10px 5px;
+  }
+
+  .blog-topic {
+    background: $action-secondary;
+    font-weight: 600;
+    padding: 0.25rem 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+
+    &:hover {
+      background: $foreground-secondary;
+      color: $action-secondary;
+    }
+  }
+
+  h3 {
+    .h3 {
+      line-height: 1.4;
+      margin-bottom: 1rem;
+      &:hover {
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+      }
+    }
+
+    .blog-text {
+      display: none;
+
+      @include responsive_650 {
+        display: block;
+
+        color: $foreground-secondary;
+        font-size: $fs-4;
+        display: -webkit-box;
+        line-clamp: 3;
+        --webkit-line-clamp: 3;
+        --webkit-box-orient: vertical;
+        overflow: hidden;
+        margin-bottom: 1rem;
+      }
+    }
+
+    .wrapper-flex {
+      .profile-wrapper {
+        display: none;
+
+        @include responsive_650 {
+          display: block;
+
+          width: 66px;
+          height: 66px;
+          background: $action-primary;
+          padding: 3px;
+          border-radius: 50%;
+
+          img {
+            border-radius: 50%;
+          }
+        }
+      }
+
+      .wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+
+        .h4 {
+          color: $foreground-secondary;
+          &:hover {
+            color: $accent;
+          }
+        }
+
+        .text-sm {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          color: $foreground-tertiary;
+
+          .separator {
+            background: $foreground-tertiary;
+            margin-inline: 3px;
+            margin: 0 3px;
+            width: 3px;
+            height: 3px;
+            border-radius: 3px;
+          }
+
+          ion-icon {
+            --ionicon-stoke-width: 50px;
+          }
+        }
+
+        @include responsive_650 {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0;
+        }
+      }
+
+      @include responsive_650 {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+      }
+    }
+  }
+}

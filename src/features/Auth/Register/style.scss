@@ -1,0 +1,58 @@
+@import "../../../assets/scss/app.scss";
+
+.form {
+  .date-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .selector {
+      display: flex;
+      width: 350px;
+      justify-content: space-between;
+
+      .select-group {
+        width: 100px;
+        display: flex;
+      }
+    }
+  }
+
+  .radio-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    label {
+      font-weight: 500;
+      color: rgba(129, 127, 127, 0.933);
+    }
+
+    .radio {
+      display: flex;
+      gap: 20px;
+
+      .form-group_radio {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+    }
+  }
+
+  .button-submit {
+    button {
+      background: $accent;
+      width: 100%;
+      padding: 5px 0;
+      color: $action-primary;
+      font-size: 1.4rem;
+
+      &:hover {
+        transition: all 0.2s ease-in-out;
+        color: $white;
+        background: rgb(44, 91, 192);
+      }
+    }
+  }
+}

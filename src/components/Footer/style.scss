@@ -1,0 +1,98 @@
+@import "../../assets/scss/app.scss";
+
+footer {
+  background: $background-primary;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+
+  .container {
+    padding: $py 15px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+
+    .wrapper {
+      text-align: center;
+
+      .footer-logo {
+        margin-bottom: 10px;
+
+        .logo-light {
+          display: block;
+        }
+
+        .logo-dark {
+          display: none;
+        }
+      }
+
+      .footer-text {
+        color: $foreground-secondary;
+        max-width: 300px;
+        margin-inline: auto;
+        margin: auto;
+
+        @include responsive_650 {
+          margin: 0;
+        }
+      }
+
+      .footer-title {
+        color: $foreground-primary;
+        font-weight: 700;
+        margin-bottom: 0.4rem;
+      }
+      ul {
+        li {
+          .footer-link {
+            color: $foreground-secondary;
+            &:hover {
+              color: $accent;
+            }
+          }
+        }
+      }
+
+      @include responsive_650 {
+        text-align: left;
+      }
+    }
+
+    @include responsive_650 {
+      padding: $py 30px;
+      // grid-template-columns: 1fr 1fr 1fr 1fr;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @include responsive_1024 {
+      .wrapper {
+        .footer-title {
+          font-size: 1.125rem;
+
+          ul {
+            li {
+              .footer-link {
+                margin-bottom: 0.3rem;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @include responsive_1024 {
+      width: 1150px !important;
+    }
+  }
+}
+
+// .dark-theme {
+//   .logo-dark {
+//     display: none;
+//   }
+//   .logo-dark {
+//     display: block;
+//   }
+// }

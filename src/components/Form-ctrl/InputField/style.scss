@@ -1,0 +1,35 @@
+@import "../../../assets/scss/app.scss";
+.input {
+  width: 350px;
+  padding: 0.8rem;
+  border: none;
+  border: 1px solid rgb(235, 235, 236);
+  border-radius: 5px;
+  line-height: 1.3;
+  font-size: 1.2rem;
+  font-weight: lighter;
+  &:focus {
+    outline: 1px solid rgb(204, 204, 205);
+    outline-offset: 0;
+  }
+
+  &::placeholder {
+    color: $action-secondary;
+  }
+}
+
+.form-group_radio {
+  width: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  input:hover {
+    cursor: pointer;
+  }
+}
+
+.error-message {
+  text-align: center;
+  color: red;
+}

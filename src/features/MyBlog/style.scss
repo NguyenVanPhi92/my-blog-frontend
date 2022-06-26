@@ -1,0 +1,21 @@
+.card-group {
+  .row {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    .col {
+      display: flex;
+      flex-direction: row;
+
+      .blog-card {
+        .blog-card-banner {
+          width: 400px;
+          height: 280px;
+        }
+      }
+    }
+  }
+}

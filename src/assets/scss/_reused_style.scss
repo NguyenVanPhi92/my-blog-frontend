@@ -1,0 +1,34 @@
+/*container*/
+.container {
+  margin-inline: auto;
+  margin: auto;
+  padding: 0 15px;
+}
+
+/*button*/
+.btn {
+  min-width: 10rem;
+  border-radius: 100px;
+}
+
+.btn-primary {
+  background: $accent;
+  color: $white;
+  padding: 0.6875rem 1.1875rem;
+}
+
+.btn-primary:hover {
+  background: $foreground-secondary;
+  color: $action-primary;
+}
+
+.btn-secondary {
+  background: $action-secondary;
+  color: $foreground-secondary;
+  padding: 0.5rem 1rem;
+  border: 3px solid $foreground-tertiary;
+}
+
+.btn-secondary:hover {
+  border-color: $accent;
+}

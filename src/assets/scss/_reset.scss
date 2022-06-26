@@ -1,0 +1,112 @@
+/*reset web*/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+img,
+button {
+  display: block;
+}
+
+a,
+span {
+  display: inline-block;
+}
+
+button {
+  font: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+html {
+  font-family: "Inter", sans-serif;
+  font-size: $fs-base; /* base font-size (0.85rem = 13.6px) */
+  line-height: 1.8;
+}
+
+:focus {
+  outline-offset: 4px;
+}
+
+/**
+   * scrollbar style
+   */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $accent;
+  border: none;
+}
+
+// .light-theme::-webkit-scrollbar-thumb {
+//   border-color: hsl(0, 0%, 90%);
+// }
+
+// .dark-theme::-webkit-scrollbar-thumb {
+//   border-color: hsl(219, 27%, 20%);
+// }
+
+// .light-theme::-webkit-scrollbar-track {
+//   background: hsl(0, 0%, 90%);
+// }
+
+// .dark-theme::-webkit-scrollbar-track {
+//   background: hsl(219, 27%, 20%);
+// }
+
+/*-----------------------------------*\ 
+    #BASE STYLE
+  \*-----------------------------------*/
+
+.h1,
+.h2,
+.h3,
+.h4 {
+  display: block;
+  color: $foreground-primary;
+}
+
+.h1 {
+  font-size: $fs-1;
+  font-weight: 900;
+}
+
+.h2 {
+  font-size: $fs-2;
+  font-weight: 700;
+}
+
+.h3 {
+  font-size: $fs-3;
+  font-weight: 700;
+}
+
+.h4 {
+  font-size: $fs-4;
+  font-weight: 700;
+}
+
+.text-sm {
+  font-size: $fs-4;
+}
+
+.text-tiny {
+  font-size: $fs-5;
+}

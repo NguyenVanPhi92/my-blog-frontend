@@ -1,0 +1,185 @@
+@import "../../assets/scss/app.scss";
+.aside {
+  display: none;
+  .contact {
+    display: none;
+  }
+
+  @include responsive_1024 {
+    display: block;
+    align-items: stretch;
+
+    .topics {
+      margin-bottom: 3rem;
+
+      .h2 {
+        color: $foreground-secondary;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        text-align: center;
+        line-height: 1.3;
+      }
+
+      .topic-btn {
+        display: flex;
+        align-items: stretch;
+        background: $background-primary;
+        box-shadow: 0 5px 5px hsla(0, 0%, 0%, 0.05);
+        overflow: hidden;
+
+        &:not(:last-child) {
+          margin-bottom: 1rem;
+        }
+
+        .icon-box {
+          font-size: 22px;
+          width: 70px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: $action-primary;
+          color: $foreground-secondary;
+
+          &:hover {
+            background: $accent;
+            color: $white;
+          }
+        }
+
+        ion-icon {
+          --ionicon-stroke-width: 40px;
+        }
+
+        p {
+          padding: 8px;
+          color: $foreground-secondary;
+          font-weight: 700;
+        }
+      }
+    }
+
+    .tags {
+      background: $background-primary;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 5px 5px hsla(0, 0%, 0%, 0.05);
+      margin-bottom: 3rem;
+
+      .h2 {
+        margin-bottom: 1.3rem;
+      }
+
+      .wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.2rem;
+
+        .hashtag {
+          background: $action-primary;
+          color: $foreground-secondary;
+          padding: 5px 10px;
+          font-size: $fs-5;
+          font-weight: 700;
+          border-radius: 5px;
+
+          &:hover {
+            background: $foreground-secondary;
+            color: $action-secondary;
+          }
+        }
+      }
+    }
+
+    .contact {
+      display: block;
+      width: 80px;
+      position: fixed;
+      top: 32%;
+      right: 80px;
+      z-index: 2222;
+
+      .social-link {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+        li {
+          .icon-box {
+            width: 45px;
+            height: 45px;
+            background: $action-secondary;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+
+            &:hover {
+              background: $accent;
+              color: $white;
+            }
+          }
+
+          .discord {
+            color: hsl(235, 86%, 65%);
+          }
+
+          .twitter {
+            color: hsl(203, 89%, 53%);
+          }
+
+          .facebook {
+            color: hsl(220, 46%, 48%);
+          }
+
+          .linkedin {
+            color: hsl(202, 98%, 38%);
+          }
+
+          .github {
+            color: hsl(223, 11%, 13%);
+          }
+        }
+      }
+    }
+
+    .newsletter {
+      .wrapper {
+        p {
+          color: $foreground-secondary;
+          margin-bottom: 1rem;
+        }
+
+        form {
+          input {
+            border: none;
+            background: $action-primary;
+            display: block;
+            width: 100%;
+            padding: 0.5rem 1rem;
+            font: inherit;
+            color: $foreground-secondary;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+
+            &::placeholder {
+              color: inherit;
+            }
+
+            &:focus {
+              outline: 2px solid;
+              outline-offset: 0;
+            }
+          }
+
+          .btn-primary {
+            margin-inline: auto;
+            margin: auto;
+          }
+        }
+      }
+    }
+  }
+}

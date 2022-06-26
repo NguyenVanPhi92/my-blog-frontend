@@ -1,0 +1,58 @@
+@import "../../assets/scss/app.scss";
+
+.main {
+  background: $background-secondary;
+  padding: $py 0;
+
+  .container {
+    .blog {
+      .h2 {
+        line-height: 1.3;
+        margin-bottom: 3rem;
+        text-align: center;
+
+        @include responsive_650 {
+          position: relative;
+          text-align: left;
+          padding-left: 2rem;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: $action-primary;
+            width: 5px;
+            height: 100%;
+            border-radius: 5px;
+          }
+        }
+      }
+
+      .blog-card-group {
+        .load-more {
+          margin-inline: auto;
+          margin: auto;
+          background: $foreground-secondary;
+          color: $background-secondary;
+          padding: 0.6875rem 1.1875rem;
+
+          &:hover {
+            background: $accent;
+          }
+        }
+      }
+    }
+
+    @include responsive_1024 {
+      display: grid;
+      grid-template-columns: 5fr 2fr;
+      gap: 60px;
+
+      .aside {
+        position: sticky;
+        top: 0;
+      }
+    }
+  }
+}

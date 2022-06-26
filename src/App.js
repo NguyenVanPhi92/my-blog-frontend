@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
+import Register from "./features/Auth/Register/Register";
+import Login from "./features/Auth/Login/Login";
+import MyAccount from "./features/MyAccount/MyAccount";
+import MyBlog from "./features/MyBlog/MyBlog";
+import NewBlog from "./features/NewBlog/NewBlog";
+import HomePage from "./Pages/HomePage";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+import NotFound from "./components/NotFound/NotFound";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="light-theme">
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/about" element={<NotFound />} />
+          <Route path="/contact" element={<NotFound />} />
+          <Route path="/my-account" element={<MyAccount />} />
+          <Route path="/my-blog" element={<MyBlog />} />
+          <Route path="/new-blog" element={<NewBlog />} />
+          <Route path="/article/detail" element={<NotFound />} />
+        </Routes>
+        <Footer />
+        <ToastContainer />
+      </div>
+    </>
   );
 }
 

@@ -1,0 +1,108 @@
+@import "../../assets/scss/app.scss";
+.hero {
+  background: $background-primary;
+  padding-top: 2rem;
+  margin-bottom: $py;
+  text-align: center;
+
+  .left {
+    .h1 {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+
+      b {
+        color: $accent;
+        font-weight: inherit;
+      }
+    }
+    .h3 {
+      color: $foreground-secondary;
+      margin-bottom: 3rem;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      text-align: center;
+      gap: 15px;
+    }
+  }
+
+  .right {
+    display: none;
+
+    // @include responsive_1024 {
+    //   display: block;
+    // }
+  }
+
+  @include responsive_1024 {
+    text-align: left;
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 50px;
+
+      .left {
+        .btn-group {
+          justify-content: flex-start;
+          gap: 30px;
+        }
+      }
+      .right {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .pattern-bg {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 100%;
+          height: 200px;
+          background: url(../../assets/images/pattern.png);
+          background-size: contain;
+          opacity: 0.2;
+        }
+
+        .img-box {
+          position: relative;
+          z-index: 2;
+        }
+
+        .hero-img {
+          height: 100%;
+          width: 100%;
+          object-fit: contain;
+          border-radius: 0 0 280px 230px;
+          transform: translate(10px, -10px);
+        }
+        .shape {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          border-radius: 50%;
+          transform: translate(-50%, -42%) rotate(-20deg);
+
+          &-1 {
+            background: $accent;
+            width: 90%;
+            height: 90%;
+            z-index: -1;
+          }
+
+          &-2 {
+            width: 92%;
+            height: 92%;
+            box-shadow: inset 0 -30px 0 $action-primary;
+            z-index: 2;
+          }
+        }
+      }
+    }
+  }
+}

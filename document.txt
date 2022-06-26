@@ -1,0 +1,17 @@
+npm install react-router-dom@6
+npm i sass --save-dev
+npm install --save-dev node-sass
+npm install react-icons 
+-> 3 cái này dùng cho fortmat văn bản
+   -npm install draft-js 
+   -npm install -S react-draft-wysiwyg
+   -npm i draftjs-to-html
+npm i axios
+npm i redux react-redux @reduxjs/toolkit
+npm i react-hook-form
+npm install @hookform/resolvers
+npm i @hookform/error-message
+npm i yup
+npm i jwt-decode -> giải mã jwt
+npm i react-toastify
+npm i dompurify ngăn chặc tấn công html

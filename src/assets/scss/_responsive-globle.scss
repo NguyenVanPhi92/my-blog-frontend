@@ -1,0 +1,19 @@
+@import "../scss/breakpoints";
+
+.container {
+  @include responsive_650 {
+    // $fs-1: 2.25rem !important;
+    padding: 0 30px;
+  }
+
+  @include responsive_768 {
+    max-width: 800px !important;
+  }
+
+  @include responsive_1024 {
+    // $fs-base: 1rem !important;
+    // $fs-1: 3rem !important;
+
+    max-width: 1150px !important;
+  }
+}

@@ -1,0 +1,36 @@
+/*------------------Media Query Responsive----------------*/
+$res_550: " screen and (min-width: 550px)";
+$res_650: " screen and (min-width: 650px)";
+$res_768: " screen and (min-width: 768px)";
+$res_991: " screen and (min-width: 991px)";
+$res_1024: " screen and (min-width: 1024px)";
+
+@mixin responsive_550() {
+  @media #{$res_550} {
+    @content;
+  }
+}
+
+@mixin responsive_650() {
+  @media #{$res_650} {
+    @content;
+  }
+}
+
+@mixin responsive_768() {
+  @media #{$res_768} {
+    @content;
+  }
+}
+
+@mixin responsive_991() {
+  @media #{$res_991} {
+    @content;
+  }
+}
+
+@mixin responsive_1024() {
+  @media #{$res_1024} {
+    @content;
+  }
+}
