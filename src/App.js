@@ -12,6 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import NotFound from "./components/NotFound/NotFound";
 import { AuthContextProvider } from "./context/googleContext";
+import Detail from "./features/Blog/Detail/Detail";
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
             <Route path="/my-account" element={<MyAccount />} />
             <Route path="/my-blog" element={<MyBlog />} />
             <Route path="/new-blog" element={<NewBlog />} />
-            <Route path="/article/detail" element={<NotFound />} />
+            <Route path="/article/:id" element={<Detail />} />
           </Routes>
           <Footer />
           <ToastContainer />

@@ -9,13 +9,13 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import logoLight from "../../assets/images/logo-light.svg";
 import logoDark from "../../assets/images/logo-dark.svg";
-import Toast from "../Toast/Toast.jsx";
 import { useSelector, useDispatch } from "react-redux";
 import "./style.scss";
 import { logoutUser } from "../../app/apiRequest";
 import { createAxios } from "../../app/createInstance";
 import { logoutSuccess } from "../../redux/authSlice";
 import { UserAuthGoogle } from "../../context/googleContext";
+import ToastInfo from "../Toast/ToastInfo";
 
 const Header = () => {
   const { logOut, userGoogle } = UserAuthGoogle();
@@ -38,12 +38,12 @@ const Header = () => {
   const handleLogout = async () => {
     if (user) {
       logoutUser(dispatch, id, navigate, accessToken, axiosJWT);
-      <Toast message="🦄 logout!" />;
+      <ToastInfo message="🦄 logout!" />;
     }
     if (userGoogle) {
       try {
         await logOut();
-        <Toast message="🦄 logout!" />;
+        <ToastInfo message="🦄 logout!" />;
       } catch (error) {
         console.log(error);
       }
@@ -57,10 +57,10 @@ const Header = () => {
         <div className="container">
           <nav className="navbar">
             {/* <!--HEADER FOR DESKTOP--> */}
-            <a href="/#">
+            <Link to="/">
               <img src={logoLight} className="logo-light" width="150" alt="" />
               <img src={logoDark} className="logo-dark" width="150" alt="" />
-            </a>
+            </Link>
 
             <div className="btn-group">
               <button className="theme-btn theme-btn-mobile light">

@@ -87,9 +87,6 @@ const LoginForm = (props) => {
             </a>
           </div>
           <div className="login-google">
-            {/* <a href="/">
-              <p>Google</p>
-            </a> */}
             <GoogleButton onClick={handleGoogleSignIn} />
           </div>
         </div>

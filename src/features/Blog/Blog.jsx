@@ -1,21 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Aside from "../Aside/Aside";
+import { useSelector, useDispatch } from "react-redux";
 import "./style.scss";
-import Card from "../../components/BlogCard/Card";
-import axios from "axios";
+import Card from "./Card/Card";
+import { getAllBlog } from "../../app/apiRequest";
 
 const Blog = () => {
-  const [blogData, setBlogData] = useState();
+  const blogList = useSelector((state) => state.blog.getAllBlog.blogList);
+  const dispatch = useDispatch();
+  console.log("blog list: ", blogList);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8000/v1/post-article")
-      .then((response) => {
-        setBlogData(response.data);
-      })
-      .catch((error) => {
-        console.log("Error Blog: ", error);
-      });
+    getAllBlog(dispatch);
   }, []);
 
   return (
@@ -24,7 +20,7 @@ const Blog = () => {
         <div className="blog">
           <h2 className="h2">Latest Blog Post</h2>
           <div className="blog-card-group">
-            <Card blogData={blogData} />
+            <Card blogData={blogList} />
           </div>
         </div>
 

@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 
-const Toast = ({ message }) => {
-  return toast.info(message, {
+const ToastSuccess = ({ message }) => {
+  return toast.success(message, {
     position: "top-right",
     autoClose: 600,
     hideProgressBar: false,
@@ -12,4 +12,4 @@ const Toast = ({ message }) => {
   });
 };
 
-export default Toast;
+export default ToastSuccess;

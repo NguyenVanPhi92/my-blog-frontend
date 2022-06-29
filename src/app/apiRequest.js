@@ -11,6 +11,17 @@ import {
   registerSuccess,
 } from "../redux/authSlice";
 import { toast } from "react-toastify";
+import ToastSuccess from "../components/Toast/ToastSuccess";
+import ToastError from "../components/Toast/ToastError";
+import ToastInfo from "../components/Toast/ToastInfo";
+import {
+  getAllBlogError,
+  getAllBlogStart,
+  getAllBlogSuccess,
+  getOneBlogError,
+  getOneBlogStart,
+  getOneBlogSuccess,
+} from "../redux/blogSlice";
 
 export const loginUser = async (user, dispatch, navigate) => {
   dispatch(loginStart());
@@ -19,6 +30,7 @@ export const loginUser = async (user, dispatch, navigate) => {
     const res = await axios.post("http://localhost:8000/v1/auth/login", user);
     dispatch(loginSuccess(res.data));
     navigate("/");
+    // <ToastSuccess message="🦄 login success!" />;
     toast.success("🦄 login success!", {
       position: "top-right",
       autoClose: 600,
@@ -29,9 +41,10 @@ export const loginUser = async (user, dispatch, navigate) => {
       progress: undefined,
     });
   } catch (error) {
+    <ToastError message="UserName or Password Failed" />;
     toast.error("UserName or Password Failed", {
       position: "top-right",
-      autoClose: 1000,
+      autoClose: 2000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -57,6 +70,7 @@ export const logoutUser = async (
     });
     dispatch(logoutSuccess());
     navigate("/login");
+    <ToastInfo />;
   } catch (error) {
     console.log(error);
     dispatch(logoutFailed());
@@ -93,13 +107,23 @@ export const registerUser = async (user, dispatch, navigate) => {
   }
 };
 
-export const getAllBlog = async (
-  dispatch,
-  id,
-  navigate,
-  accessToken,
-  axiosJWT
-) => {
+export const getAllBlog = async (dispatch) => {
+  dispatch(getAllBlogStart());
   try {
-  } catch (error) {}
+    const res = await axios.get("http://localhost:8000/v1/post-article");
+    dispatch(getAllBlogSuccess(res.data));
+    console.log("blog List: ", res.data);
+  } catch (error) {
+    dispatch(getAllBlogError());
+  }
+};
+export const getOneBlog = async (id, dispatch) => {
+  dispatch(getOneBlogStart());
+
+  try {
+    const res = await axios.get(`http://localhost:8000/v1/post-article/${id}`);
+    dispatch(getOneBlogSuccess(res.data));
+  } catch (error) {
+    dispatch(getOneBlogError());
+  }
 };

@@ -1,10 +1,19 @@
 import { Link } from "react-router-dom";
-import auth from "../../assets/images/author.png";
-import blog from "../../assets/images/blog-1.png";
-import "./style.scss";
+import { getOneBlog } from "../../../app/apiRequest";
+import auth from "../../../assets/images/author.png";
+import blog from "../../../assets/images/blog-1.png";
+import { useDispatch } from "react-redux";
+import "./cardStyle.scss";
 
 const Card = (props) => {
   const { blogData } = props;
+  const dispatch = useDispatch();
+
+  //handle
+  const handleClickBlogDetail = (id) => {
+    getOneBlog(id, dispatch);
+    console.log("Blog id: ", id);
+  };
 
   return (
     <div className="blog-card">
@@ -21,7 +30,11 @@ const Card = (props) => {
           <div className="blog-content-wrapper">
             <button className="blog-topic text-tiny">{item.category}</button>
             <h3>
-              <Link to={`article/detail`} className="h3">
+              <Link
+                to={`article/${item._id}`}
+                className="h3"
+                onClick={() => handleClickBlogDetail(item._id)}
+              >
                 {item.title}
               </Link>
               <p

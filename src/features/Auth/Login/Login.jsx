@@ -8,9 +8,9 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSubmit = (values) => {
-    console.log("Login Submit: ", values);
-    loginUser(values, dispatch, navigate);
+  const handleSubmit = (userValue) => {
+    // console.log("Login Submit: ", userValue);
+    loginUser(userValue, dispatch, navigate);
   };
 
   return (
