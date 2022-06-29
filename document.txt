@@ -15,3 +15,5 @@ npm i yup
 npm i jwt-decode -> giải mã jwt
 npm i react-toastify
 npm i dompurify ngăn chặc tấn công html
+npm i react-google-button
+npm i firebase

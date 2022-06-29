@@ -3,11 +3,13 @@ import "./style.scss";
 import { Controller } from "react-hook-form";
 
 const RadioField = (props) => {
-  const { label, name, placeholder, form } = props;
-  const { errors } = form; // lấy ra lỗi trong form đã đc định nghĩa từ trước
-  // const hasError = errors[name];
-  console.log("error: ", errors);
-  console.log("check form react hook form: ", form);
+  const { label, name, form, gender } = props;
+  const {
+    register,
+    formState: { errors },
+  } = form; // lấy ra lỗi trong form đã đc định nghĩa từ trước
+  const hasError = errors[name];
+  console.log("input error: ", !!hasError);
 
   return (
     <>
@@ -15,19 +17,19 @@ const RadioField = (props) => {
         name={name}
         control={form.control}
         render={({ onChange, onBlur, value, name }) => (
-          <div className="form-group_input">
-            <label htmlFor="" style={{ fontSize: "1.2rem" }}>
-              {label}
-            </label>
+          <div className="radio">
+            <label style={{ fontSize: "1.2rem" }}>{label}</label>
             <input
               type="radio"
-              className="input"
-              placeholder={placeholder}
               onChange={onChange}
               onBlur={onBlur}
               value={value}
+              name={gender}
             />
-            {/* <p>{!!hasError ? errors[name]?.message : ""}</p> */}
+            {console.log("Male value: ", value)}
+            <p className="error-message">
+              {!!hasError ? errors[name]?.message : ""}
+            </p>
           </div>
         )}
       />

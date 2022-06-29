@@ -1,41 +1,57 @@
 @import "../../../assets/scss/app.scss";
 
 .form {
+  height: 620px;
+  overflow: scroll;
   .date-group {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    .selector {
-      display: flex;
-      width: 350px;
-      justify-content: space-between;
-
-      .select-group {
-        width: 100px;
-        display: flex;
-      }
-    }
-  }
-
-  .radio-group {
+    height: 48px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     label {
-      font-weight: 500;
       color: rgba(129, 127, 127, 0.933);
+      font-weight: 600;
     }
 
-    .radio {
+    .selector {
       display: flex;
-      gap: 20px;
+      width: 350px;
+      height: 38px;
+      justify-content: space-between;
 
-      .form-group_radio {
+      .select-group {
+        width: 100px;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+
+  .radio-group {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    label {
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: rgba(129, 127, 127, 0.933);
+    }
+    div {
+      display: flex;
+      align-items: flex-start;
+
+      .radio {
         display: flex;
         align-items: center;
         gap: 10px;
+        line-height: 1.2rem;
+
+        input {
+          cursor: pointer;
+        }
       }
     }
   }
@@ -47,6 +63,7 @@
       padding: 5px 0;
       color: $action-primary;
       font-size: 1.4rem;
+      margin-top: 2rem;
 
       &:hover {
         transition: all 0.2s ease-in-out;

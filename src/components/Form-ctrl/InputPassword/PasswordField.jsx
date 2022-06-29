@@ -34,7 +34,7 @@ const PasswordField = (props) => {
                 value={value}
               />
             </div>
-            <p className="error-message">
+            <p className="error-message" style={{ textAlign: "right" }}>
               {" "}
               {!!hasError ? errors[name]?.message : ""}
             </p>

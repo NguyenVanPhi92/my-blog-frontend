@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaReact, FaFacebookF } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
@@ -7,9 +7,15 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import "./style.scss";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
+import { useNavigate } from "react-router-dom";
 import PasswordField from "../../../components/Form-ctrl/InputPassword/PasswordField";
+import { UserAuthGoogle } from "../../../context/googleContext";
+import GoogleButton from "react-google-button";
 
 const LoginForm = (props) => {
+  const { googleSignIn, userGoogle } = UserAuthGoogle();
+  const navigate = useNavigate();
+
   const schema = yup.object().shape({
     email: yup.string().required("Please enter your email").email(),
     password: yup
@@ -33,6 +39,20 @@ const LoginForm = (props) => {
       onSubmit(valueForm);
     }
   };
+
+  const handleGoogleSignIn = async () => {
+    try {
+      await googleSignIn();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    if (userGoogle != null) {
+      navigate("/");
+    }
+  }, [userGoogle]);
 
   return (
     <form className="form" onSubmit={form.handleSubmit(handleOnsubmit)}>
@@ -67,10 +87,10 @@ const LoginForm = (props) => {
             </a>
           </div>
           <div className="login-google">
-            <a href="/">
+            {/* <a href="/">
               <p>Google</p>
-              <FcGoogle className="icon-g" />
-            </a>
+            </a> */}
+            <GoogleButton onClick={handleGoogleSignIn} />
           </div>
         </div>
       </div>

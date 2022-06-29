@@ -9,13 +9,17 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import logoLight from "../../assets/images/logo-light.svg";
 import logoDark from "../../assets/images/logo-dark.svg";
+import Toast from "../Toast/Toast.jsx";
 import { useSelector, useDispatch } from "react-redux";
 import "./style.scss";
 import { logoutUser } from "../../app/apiRequest";
 import { createAxios } from "../../app/createInstance";
 import { logoutSuccess } from "../../redux/authSlice";
+import { UserAuthGoogle } from "../../context/googleContext";
 
 const Header = () => {
+  const { logOut, userGoogle } = UserAuthGoogle();
+
   const [sideBar, setSideBar] = useState(false);
   const user = useSelector((state) => state.auth.login.currentUser);
   const accessToken = user?.accessToken;
@@ -29,9 +33,21 @@ const Header = () => {
     e.preventDefault();
     setSideBar(!sideBar);
   };
+  // console.log("google: ", userGoogle.uid);
 
-  const handleLogout = () => {
-    logoutUser(dispatch, id, navigate, accessToken, axiosJWT);
+  const handleLogout = async () => {
+    if (user) {
+      logoutUser(dispatch, id, navigate, accessToken, axiosJWT);
+      <Toast message="🦄 logout!" />;
+    }
+    if (userGoogle) {
+      try {
+        await logOut();
+        <Toast message="🦄 logout!" />;
+      } catch (error) {
+        console.log(error);
+      }
+    }
   };
 
   return (
@@ -81,13 +97,15 @@ const Header = () => {
                 <ion-icon name="sunny" className="sun"></ion-icon>
               </button>
 
-              {!user && (
-                <Link to="/login">
-                  <button className=" btn-login">Login</button>
-                </Link>
+              {!user && !userGoogle && (
+                <>
+                  <Link to="/login">
+                    <button className=" btn-login">Login</button>
+                  </Link>
+                </>
               )}
 
-              {user && (
+              {(user || userGoogle) && (
                 <div className="account">
                   <MdAdminPanelSettings className="icon-account" />
 
@@ -111,7 +129,7 @@ const Header = () => {
                       </Link>
                     </li>
                     <li className="menu-item">
-                      <Link to="/">
+                      <Link to="/" onClick={handleLogout}>
                         <p>Logout</p>
                         <MdLogout />
                       </Link>

@@ -25,7 +25,6 @@ const Blog = () => {
           <h2 className="h2">Latest Blog Post</h2>
           <div className="blog-card-group">
             <Card blogData={blogData} />
-            <button className="btn load-more">Load More</button>
           </div>
         </div>
 

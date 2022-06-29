@@ -17,14 +17,3 @@
     color: $action-secondary;
   }
 }
-
-.form-group_radio {
-  width: 90px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  input:hover {
-    cursor: pointer;
-  }
-}
